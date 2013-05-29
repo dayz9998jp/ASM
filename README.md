@@ -11,7 +11,7 @@ Propertys:
 	- monitors up to 4 instances
 	- introduces a performance value CPS (nothing similar in the arma diag_## serie)
 	- very simple and solid
-	- nearly no influence to performance
+	- nearly no influence to cpu load
 	
 
 Currently able to monitor the following values:
@@ -19,9 +19,9 @@ Currently able to monitor the following values:
 	- FPS (on server this means simulation frames per second)
 	- CPS (Condition-evaluation Per Second)
 	- PL# (Number of alive player units)
-	- AI# (Number of alive AI units)
-	- PID (process ID of the server process)
-	- Name of the currently played mission
+	- AI# (Number of alive local AI units)
+	- PID (process ID of the server instance)
+	- Name of the currently played mission (missionName)
 
 **Arma Server Monitor** consists of 3 components:
 
@@ -30,7 +30,7 @@ Currently able to monitor the following values:
 	ArmaServerMonitor.exe 	- The Monitor itself reads from MMF and displays the values
 
 
-An very interesting value is **CPS**.    
+Amang the well known FPS, an very interesting new value is **CPS**.    
 **CPS** is expressed by **condition** **evalations** per **second** and measured from an reference condition in `ASM.fsm`.   
 You can realize the **CPS** value as something like the current "response time" of AI in the running mission.    
 Especially COOP missions running with low **CPS** are really no pleasure. AI seems to be "stupid".   
@@ -40,7 +40,7 @@ Lets say we have a CPS value of 10.0, what means everything runs well.
 AI has a average response delay of ca. 100ms here (1000ms/10.0).      
 In a second scenario we have a CPS value of 0.3, what means AI response time is larger the 3 seconds !!!   
 (If the second scenario occurs together with normal FPS values, i recommend to have a talk with the mission developer,    
-because this is very likely caused by excessively use of execVM, spawn etc.)    
+because it is very likely caused by excessively use of execVM, spawn etc.)    
 
 
 **How to use:**
