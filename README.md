@@ -10,7 +10,7 @@ Propertys:
 
 	- monitors up to 4 instances
 	- introduces a performance value CPS (nothing similar in the arma diag_## serie)
-	- very simple and solid
+	- very simple, compact and solid
 	- nearly no influence to cpu load
 	
 
