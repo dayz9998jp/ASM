@@ -1,11 +1,11 @@
 /*%FSM<COMPILE "F:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, ASM">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"reset",2,250,-75.000000,-350.000000,25.000000,-300.000000,0.000000,"reset"};
-item1[] = {"freq",4,218,50.000000,-350.000000,150.000000,-300.000000,0.000000,"freq"};
+item0[] = {"wait",2,250,-75.000000,-350.000000,25.000000,-300.000000,0.000000,"wait"};
+item1[] = {"freq",4,4314,50.000000,-350.000000,150.000000,-300.000000,0.000000,"freq"};
 item2[] = {"init",0,250,-75.000000,-500.000000,25.000000,-450.000000,0.000000,"init"};
 item3[] = {"true",8,218,-75.000000,-425.000000,25.000000,-375.000000,0.000000,"true"};
-item4[] = {"generic",4,4314,-75.000000,-275.000000,25.000000,-225.000000,1.000000,"generic"};
+item4[] = {"generic",4,218,-75.000000,-275.000000,25.000000,-225.000000,1.000000,"generic"};
 item5[] = {"mission",4,218,-200.000000,-350.000000,-100.000000,-300.000000,2.000000,"mission"};
 link0[] = {0,1};
 link1[] = {0,4};
@@ -16,19 +16,19 @@ link5[] = {3,0};
 link6[] = {4,0};
 link7[] = {5,0};
 globals[] = {25.000000,1,0,0,0,640,480,1,13,6316128,1,-214.054855,203.709671,-144.272369,-607.004578,864,957,1};
-window[] = {2,-1,-1,-32000,-32000,814,22,1462,22,3,881};
+window[] = {2,-1,-1,-32000,-32000,836,44,1484,44,3,881};
 *//*%FSM</HEAD>*/
 class FSM
 {
   fsmName = "ASM";
   class States
   {
-    /*%FSM<STATE "reset">*/
-    class reset
+    /*%FSM<STATE "wait">*/
+    class wait
     {
-      name = "reset";
-      init = /*%FSM<STATEINIT""">*/"_i = 0;"/*%FSM</STATEINIT""">*/;
-      precondition = /*%FSM<STATEPRECONDITION""">*/"_i = _i + 1;" \n
+      name = "wait";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/"_c = _c + 1;" \n
        ""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -36,7 +36,7 @@ class FSM
         class mission
         {
           priority = 2.000000;
-          to="reset";
+          to="wait";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"(diag_tickTime >= _NextMiss)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"diag_log format [""2:%1"", missionName];" \n
@@ -48,7 +48,7 @@ class FSM
         class generic
         {
           priority = 1.000000;
-          to="reset";
+          to="wait";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"(diag_tickTime >= _NextGen)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"_Players = 0;" \n
@@ -59,7 +59,7 @@ class FSM
            "							else {  if (local _x) then { _locAIs = _locAIs + 1 }; };" \n
            "	};" \n
            "} forEach playableUnits;" \n
-           """ASMdll"" callExtension format [""1:%1:%2:%3"", _Players, _locAIs, diag_FPS];" \n
+           """ASMdll"" callExtension format [""1:%1:%2"", _Players, _locAIs];" \n
            "_NextGen 	= diag_TickTime + _INTERVAL_GEN;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -67,10 +67,10 @@ class FSM
         class freq
         {
           priority = 0.000000;
-          to="reset";
+          to="wait";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"(diag_tickTime >= _NextFreq)"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"""ASMdll"" callExtension format [""0:%1"",_i];" \n
+          action=/*%FSM<ACTION""">*/"""ASMdll"" callExtension format [""0:%1:%2"", _c, diag_FrameNo];" \n
            "_NextFreq = diag_TickTime +  _INTERVAL_FREQ;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -84,21 +84,21 @@ class FSM
       init = /*%FSM<STATEINIT""">*/"diag_log (""ASM.fsm started"");" \n
        "" \n
        "// variable for counting the number of condition evaluations" \n
-       "_i = 0;" \n
+       "_c = 0;" \n
        "" \n
        "// Number of alive units impacting performance" \n
-       "_Players = 0; //impacts FPS" \n
-       "_locAIs = 0;  //impacts FCEF" \n
+       "_Players = 0; // impacts FPS" \n
+       "_locAIs = 0;  // impacts FCEF" \n
        "" \n
        "// register instance, occupy one MMF slot for PID" \n
-       """ASMdll"" callExtension ""9"";" \n
+       """ASMdll"" callExtension format [""9:%1:%2"", _c, diag_FrameNo];" \n
        "" \n
        "// define the minimal time interval in seconds to avoid flooding the log file at low load" \n
-       "_INTERVAL_FREQ = 5;" \n
-       "_INTERVAL_GEN = 10;" \n
+       "_INTERVAL_FREQ = 10;" \n
+       "_INTERVAL_GEN = 30;" \n
        "_INTERVAL_MISS = 60;" \n
        "" \n
-       "_NextFreq = diag_TickTime + _INTERVAL_FREQ;" \n
+       "_NextFreq = diag_TickTime + 2;" \n
        "_NextGen 	= diag_TickTime;" \n
        "_NextMiss 	= diag_TickTime;"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -108,7 +108,7 @@ class FSM
         class true
         {
           priority = 0.000000;
-          to="reset";
+          to="wait";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
