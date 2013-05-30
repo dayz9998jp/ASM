@@ -36,7 +36,7 @@ You can realize this **CPS** value as the reciprocal of the current "minimal res
 Two examples to illustrate this value:   
 Lets say we have an CPS value of 10.0, then our AI has an average response delay of ca. 100ms here (1000ms/10.0).   
 That means everything runs well in our first scenario.         
-In a second scenario we have a CPS value of 0.3, what means AI response time is larger the 3 seconds !!!    
+In a second scenario we have a CPS value of 0.3, what means AI has a **minimal** response delay larger than 3 seconds !!!    
 Especially COOP missions running with such low **CPS** are really no pleasure. AI seems to be "stupid".   
 
 (If low CPS values occurs together with normal FPS values, I'd recommend to have a talk with the mission developer,    
