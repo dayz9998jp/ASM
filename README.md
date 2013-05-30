@@ -2,7 +2,7 @@
 
 #Arma Server Monitor#
 
-"Arma Server Monitor" is a spin-off of my "arma engine performance research".
+"Arma Server Monitor" is a spin-off of my playing around with the arma engine.
 
 Propertys:
 
