@@ -28,24 +28,25 @@ Currently able to monitor the following values:
 	ArmaServerMonitor.exe 	- The Monitor itself reads from MMF and displays the values
 
 
-Alongside to the well known FPS (frames per second), an very interesting new value **CPS** is introdused here.    
+Alongside to the well known FPS (frames per second), an very interesting value **CPS** is introduced here.    
 **CPS** is expressed by **condition** **evalations** per **second** and measured from an reference condition in `ASM.fsm`.   
 
-You can realize this **CPS** value as something like the current "response time" of AI in the running mission.    
-Especially COOP missions running with low **CPS** are really no pleasure. AI seems to be "stupid".   
+You can realize this **CPS** value as the reciprocal of the current "minimal response delay" of AI in the running mission.    
 
 Two examples to illustrate this value:   
-Lets say we have an CPS value of 10.0, then our AI has an average response delay of ca. 100ms here (1000ms/10.0).
-That means everything runs well here.         
+Lets say we have an CPS value of 10.0, then our AI has an average response delay of ca. 100ms here (1000ms/10.0).   
+That means everything runs well in our first scenario.         
 In a second scenario we have a CPS value of 0.3, what means AI response time is larger the 3 seconds !!!    
-(If the second scenario occurs together with normal FPS values, I'd recommend to have a talk with the mission developer,    
+Especially COOP missions running with such low **CPS** are really no pleasure. AI seems to be "stupid".   
+
+(If low CPS values occurs together with normal FPS values, I'd recommend to have a talk with the mission developer,    
 because this behavior is very likely caused by excessively use of execVM, spawn etc.)    
 
 
 **How to use ASM:**
 
 Copy `ASMdll.dll` to your arma directory (where arma3server.exe resists)   
-Copy `ASM.FSM` to your extracted mission folder and add a start line to `init.sqf` (see example)
+Copy `ASM.FSM` to your extracted mission folder and add a start line to `init.sqf` (see example).    
 Pack your mission to a `.pbo` again and copy it in your `MPMission` folder.
 
 Run `ArmaServerMonitor.exe` to monitor all your server (or HC) instances with prepared missions.
