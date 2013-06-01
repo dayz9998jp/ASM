@@ -45,9 +45,12 @@ because this behavior is very likely caused by excessively use of execVM, spawn 
 
 **How to use ASM:**
 
-Copy `ASMdll.dll` to your arma directory (where arma3server.exe resists)   
-Copy `ASM.FSM` to your extracted mission folder and add a start line to `init.sqf` (see example).    
-Pack your mission to a `.pbo` again and copy it in your `MPMission` folder.
+Put `ASMdll.dll` in your arma directory (where arma3server.exe resists)   
+Put `ASM.FSM` in your extracted mission folder and add this start line to `init.sqf`:   
+
+	if (isServer) then {_id = execFSM "ASM.fsm";};
+    
+Pack your mission to a `.pbo` in your `MPMission` folder again.
 
 Run `ArmaServerMonitor.exe` to monitor all your server (or HC) instances with prepared missions.
 
