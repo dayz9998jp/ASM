@@ -51,7 +51,7 @@ Extract this file: [https://github.com/fred41/ASM/blob/master/addon/ASM.zip](htt
 
 Add -mod=@ASM to your server (or HC) launch params. 
 
-Run `ArmaServerMonitor.exe` to monitor all your server (or HC) instances with prepared missions.
+Run `ArmaServerMonitor.exe` to monitor all your server (or HC) instances.
 
 
 
