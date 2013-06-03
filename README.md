@@ -60,4 +60,5 @@ Run `ArmaServerMonitor.exe` to monitor all your server (or HC) instances.
 Changelog:    
 01.06.2013 Changed the install/launch method to mini-addon (thanks terox for inspiration)    
 01.06.2013 Fixed: instance occupied additional slot at mission change    
-02.06.2013 Changed bar graphs for CPS & FPS to logarithmic scale to show states more intuitive     
+02.06.2013 Changed bar graphs for CPS & FPS to logarithmic scale to show states more intuitive
+03.06.2013 Added history graphs, customizable (individual visibility, update interval)    
