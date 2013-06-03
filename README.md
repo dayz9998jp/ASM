@@ -10,7 +10,8 @@ Propertys:
 	- introduces a performance value CPS for FSM processing analysis
 	- very simple, compact and solid design
 	- almost no influence to cpu load
-	- easy to use, just bind one FSM in your mission and launch it from init.sqf file	
+	- easy to use (mini addon)
+	- customizable history graps 	
 
 Currently able to monitor the following values:
 
@@ -53,7 +54,7 @@ Add -mod=@ASM to your server (or HC) launch params.
 
 Run `ArmaServerMonitor.exe` to monitor all your server (or HC) instances.
 
-
+(use right mouse button for popup menus)
 
 *ENJOY :)*     
 
