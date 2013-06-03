@@ -24,7 +24,7 @@ Currently able to monitor the following values:
 
 **Arma Server Monitor** consists of 3 components:
 
-	ASM.fsm 				- Collects and reports some internal performance states from arma server (or HC)
+	fn_ASM.fsm 				- Collects and reports some internal performance states from arma server (or HC)
 	ASMdll.dll 				- Interfaces to ArmaServerMonitor.exe via MMF (Memory Mapped File)
 	ArmaServerMonitor.exe 	- The Monitor itself reads from MMF and displays the values
 
@@ -35,9 +35,8 @@ Alongside to the well known FPS (frames per second), an very interesting value *
 You can realize this **CPS** value as the reciprocal of the current "minimal response delay" of AI in the running mission.    
 
 Two examples to illustrate this value:   
-Lets say we have an CPS value of 10.0, then our AI has an average response delay of ca. 100ms here (1000ms/10.0).   
-That means everything runs well in our first scenario.         
-In a second scenario we have a CPS value of 0.3, what means AI has a **minimal** response delay larger than 3 seconds !!!    
+Lets say we have an CPS value of 10.0 condition evaluations per second, then our AI has an minimal response delay of ca. 100ms here (1000ms/10.0). That means everything runs well in our first scenario.         
+In a second scenario we have a value of 0.3 CPS, what means AI has a **minimal** response delay larger than 3 seconds !!!    
 Especially COOP missions running with such low **CPS** are really no pleasure. AI seems to be "stupid".   
 
 (If low CPS values occurs together with normal FPS values, I'd recommend to have a talk with the mission developer,    
