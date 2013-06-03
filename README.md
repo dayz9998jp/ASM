@@ -11,7 +11,7 @@ Propertys:
 	- very simple, compact and solid design
 	- almost no influence to cpu load
 	- easy to use (mini addon)
-	- customizable history graps 	
+	- customizable history graphs (WIP)	
 
 Currently able to monitor the following values:
 
