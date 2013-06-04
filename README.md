@@ -45,13 +45,11 @@ because this behavior is very likely caused by excessively use of execVM, spawn 
 
 **How to use ASM:**
 
-Put `ASMdll.dll` in your arma directory (where arma3server.exe resists)
-   
 Extract this file: [https://github.com/fred41/ASM/blob/master/addon/ASM.zip](https://github.com/fred41/ASM/blob/master/addon/ASM.zip)    to your Arma 3 root folder.
 
 Add -mod=@ASM to your server (or HC) launch params. 
 
-Run `ArmaServerMonitor.exe` to monitor all your server (or HC) instances.
+Run `ArmaServerMonitor.exe` from what directory you want, to monitor all your server (or HC) instances.
 
 (use right mouse button for popup menus)
 
