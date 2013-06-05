@@ -2,7 +2,7 @@
 
 #Arma Server Monitor#
 
-"Arma Server Monitor" is a spin-off of my playing around with the arma engine.
+"Arma Server Monitor" is a spin-off of my experiments with the arma engine.
 
 Propertys:
 
@@ -11,7 +11,7 @@ Propertys:
 	- very simple, compact and solid design
 	- almost no influence to cpu load
 	- easy to use (mini addon)
-	- customizable history graphs (WIP)	
+	- customizable history graphs	
 
 Currently able to monitor the following values:
 
@@ -34,13 +34,13 @@ Alongside to the well known FPS (frames per second), an very interesting value *
 
 You can realize this **CPS** value as the reciprocal of the current "minimal response delay" of AI in the running mission.    
 
-Two examples to illustrate this value:   
+Two examples to illustrate the meaning of this value:   
 Lets say we have an CPS value of 10.0 condition evaluations per second, then our AI has an minimal response delay of ca. 100ms here (1000ms/10.0). That means everything runs well in our first scenario.         
 In a second scenario we have a value of 0.3 CPS, what means AI has a **minimal** response delay larger than 3 seconds !!!    
 Especially COOP missions running with such low **CPS** are really no pleasure. AI seems to be "stupid".   
 
 (If low CPS values occurs together with normal FPS values, I'd recommend to have a talk with the mission developer,    
-because this behavior is very likely caused by excessively use of execVM, spawn etc.)    
+because this behavior is very likely caused by **excessively** use of **execVM**, **spawn** etc.)    
 
 
 **How to use ASM:**
@@ -60,4 +60,4 @@ Changelog:
 01.06.2013 Fixed: instance occupied additional slot at mission change    
 02.06.2013 Changed bar graphs for CPS & FPS to logarithmic scale to show states more intuitive   
 03.06.2013 Added history graphs, customizable (individual visibility, update interval), transparency switch    
-    
+05.06.2013 Finalized ...    
