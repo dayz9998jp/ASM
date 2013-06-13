@@ -53,6 +53,9 @@ Run `ArmaServerMonitor.exe` from what directory you want, to monitor all your se
 
 (use right mouse button for popup menus)
 
+**ATTENTION: if you prefer to run your DS instance(s) as service, you have to start ArmaServerMonitor with admin rights**     
+
+
 *ENJOY :)*     
 
 Changelog:    
@@ -62,4 +65,6 @@ Changelog:
 03.06.2013 Added history graphs, customizable (individual visibility, update interval), transparency switch    
 05.06.2013 Finished ...
 08.06.2013 Custom build for use with for DS running as service added   
-11.06.2013 Fixed: AI was not counted correctly   
+11.06.2013 Fixed: AI was not counted correctly    
+13.06.2013 running DS as service now merged in default build (custom build removed)      
+ 
