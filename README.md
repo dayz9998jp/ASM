@@ -55,14 +55,14 @@ Run `ArmaServerMonitor.exe` from what directory you want, to monitor all your se
 
 **Additional**, it is now possible to **connect** to `Arma Server Monitor` **from remote**.   
 To do that, you need `ArmaServerMonitor.exe` on the remote device too and configure it per start params.
-Default start params for `ArmaServerMonitor.exe` are: `-server -h127.0.0.1 -p24000`   
-This means it starts per default as monitoring server and listens at TCP port 24000.
+Default start params for `ArmaServerMonitor.exe` are: `-server -n1 -h127.0.0.1 -p24000`   
+This means, it starts per default as monitoring server and listens at TCP port 24000, max. allowed clients = 1.
 
 Example for client configuration:   
 
     ArmaServerMonitor.exe -client -h201.178.1.102 -p24000
 
-That means it starts as monitoring client and tries periodical to connect to your monitoring server at 201.178.1.102:24000.   
+That means it starts as monitoring client and tries periodical to connect/read to/from your monitoring server at 201.178.1.102:24000.   
 (If your server is firewall protected, you have to open TCP port on server)
 
 **If you prefer to run your DS instance(s) as service, you have to start ArmaServerMonitor with admin rights**     
