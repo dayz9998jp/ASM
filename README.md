@@ -47,14 +47,25 @@ because this behavior is very likely caused by **excessively** use of **execVM**
 
 Extract this file: [https://github.com/fred41/ASM/blob/master/addon/ASM.zip](https://github.com/fred41/ASM/blob/master/addon/ASM.zip)    to your Arma 3 root folder.
 
-Add -mod=@ASM to your server (or HC) launch params. 
+Add -mod=@ASM to your server (or HC) launch params.     
 
-Run `ArmaServerMonitor.exe` from what directory you want, to monitor all your server (or HC) instances.
+Run `ArmaServerMonitor.exe` from what directory you want, to monitor all your server (or HC) instances locally.
 
-(use right mouse button for popup menus)
+(use right mouse button for popup menus)     
 
-**ATTENTION: if you prefer to run your DS instance(s) as service, you have to start ArmaServerMonitor with admin rights**     
+**Additional**, it is now possible to **connect** to `Arma Server Monitor` **from remote**.   
+To do that, you need `ArmaServerMonitor.exe` on the remote device too and configure it per start params.
+Default start params for `ArmaServerMonitor.exe` are: `-server -h127.0.0.1 -p24000`   
+This means it starts per default as monitoring server and listens at TCP port 24000.
 
+Example for client configuration:   
+
+    ArmaServerMonitor.exe -client -h201.178.1.102 -p24000
+
+That means it starts as monitoring client and tries periodical to connect to your monitoring server at 201.178.1.102:24000.   
+(If your server is firewall protected, you have to open TCP port on server)
+
+**If you prefer to run your DS instance(s) as service, you have to start ArmaServerMonitor with admin rights**     
 
 *ENJOY :)*     
 
@@ -66,5 +77,6 @@ Changelog:
 05.06.2013 Finished ...
 08.06.2013 Custom build for use with for DS running as service added   
 11.06.2013 Fixed: AI was not counted correctly    
-13.06.2013 running DS as service now merged in default build (custom build removed)      
+13.06.2013 running DS as service now merged in default build (custom build removed)    
+17.06.2013 remote monitoring now available via additional ASM instance, configured per start params      
  
