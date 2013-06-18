@@ -75,10 +75,10 @@ Changelog:
 01.06.2013 Fixed: instance occupied additional slot at mission change    
 02.06.2013 Changed bar graphs for CPS & FPS to **logarithmic scale** to show states more intuitive   
 03.06.2013 Added **history graphs**, customizable (individual visibility, update interval), transparency switch    
-05.06.2013 Finished ...
+05.06.2013 Finished ... or not ...  
 08.06.2013 Custom build for use with for DS running as service added   
 11.06.2013 Fixed: AI was not counted correctly    
 13.06.2013 running DS as **service** now merged in default build (custom build removed)    
 17.06.2013 **remote monitoring** now available via additional ASM instance, configured per start params      
-18.06.2013 Ammount of allocated physical memory in [GB], **MEM** added      
+18.06.2013 Amount of allocated physical memory in [GB], **MEM** added      
  
