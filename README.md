@@ -67,6 +67,7 @@ That means it starts as monitoring client and tries periodical to connect/read t
 (If your server is firewall protected, you have to open TCP port on server)
 
 **If you prefer to run your DS instance(s) as service, you have to start ArmaServerMonitor with admin rights**     
+**To use ASM with pre A3 versions, you have to start fn_ASM.fsm from init.sqf in each of your mission files**     
 
 *ENJOY :)*     
 
